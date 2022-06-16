@@ -22,7 +22,6 @@ app.post("/sign-up", (req, res) => {
         username: req.body.username,
         avatar: req.body.avatar
     });
-    res.send(console.log(users));
     res.send(console.log("OK"));
 });
 
