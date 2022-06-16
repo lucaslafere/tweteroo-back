@@ -13,6 +13,7 @@ const users = [{
 const tweets = [{
     username: "bobesponja",
     tweet: "eu amo o hub",
+    avatar: "https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg?quality=70&strip=info",
 }];
 
 
@@ -21,13 +22,17 @@ app.post("/sign-up", (req, res) => {
         username: req.body.username,
         avatar: req.body.avatar
     });
-    res.send("OK");
+    res.send(console.log(users));
+    res.send(console.log("OK"));
 });
 
 app.post("/tweets", (req, res) => {
+    let name = req.body.username
+    let currentUser = users.find(element => element.username === name)
     tweets.push({
-        username: req.body.username,
-        tweet: req.body.tweet
+        username: name,
+        tweet: req.body.tweet,
+        avatar: currentUser.avatar
     });
     res.send("OK");
 });
